@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+    padding: 10px 0 6px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* ====== TOOLBAR ====== */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.tool-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-right: 1px solid #eee;
+    padding-right: 12px;
+}
+
+.tool-group:last-child {
+    border-right: none;
+}
+
+.tool-group label {
+    font-size: 0.75rem;
+    color: #666;
+    white-space: nowrap;
+}
+
+/* Color Palette */
+.color-palette {
+    display: flex;
+    gap: 5px;
+}
+
+.color-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.1s, border-color 0.1s;
+}
+
+.color-btn:hover {
+    transform: scale(1.2);
+}
+
+.color-btn.active {
+    border-color: #333;
+    transform: scale(1.2);
+}
+
+/* Tool Buttons */
+.tool-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.tool-btn:hover {
+    background: #e8e8e8;
+}
+
+.tool-btn.active {
+    background: #3498db;
+    color: white;
+    border-color: #2980b9;
+}
+
+.tool-btn.danger {
+    background: #e74c3c;
+    color: white;
+    border-color: #c0392b;
+}
+
+.tool-btn.danger:hover {
+    background: #c0392b;
+}
+
+/* Brush slider */
+#brushSize {
+    width: 80px;
+    cursor: pointer;
+}
+
+/* Canvas */
+canvas {
+    background-color: white;
+    border: 2px solid #ccc;
+    cursor: crosshair;
+    display: block;
+    width: calc(100vw - 40px);
+    flex: 1;
+    max-height: calc(100vh - 160px);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

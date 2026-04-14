@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Drawing Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-Time Collaborative Drawing Board</h1>
+
+        <!-- ====== TOOLBAR ====== -->
+        <div class="toolbar">
+
+            <!-- Colors -->
+            <div class="tool-group">
+                <label>Color</label>
+                <div class="color-palette">
+                    <button class="color-btn active" data-color="#000000" style="background:#000000"></button>
+                    <button class="color-btn" data-color="#e74c3c" style="background:#e74c3c"></button>
+                    <button class="color-btn" data-color="#e67e22" style="background:#e67e22"></button>
+                    <button class="color-btn" data-color="#f1c40f" style="background:#f1c40f"></button>
+                    <button class="color-btn" data-color="#2ecc71" style="background:#2ecc71"></button>
+                    <button class="color-btn" data-color="#3498db" style="background:#3498db"></button>
+                    <button class="color-btn" data-color="#9b59b6" style="background:#9b59b6"></button>
+                    <button class="color-btn" data-color="#ffffff" style="background:#ffffff; border: 2px solid #ccc;"></button>
+                </div>
+            </div>
+
+            <!-- Brush Size -->
+            <div class="tool-group">
+                <label>Brush <span id="brushSizeLabel">3</span>px</label>
+                <input type="range" id="brushSize" min="1" max="30" value="3">
+            </div>
+
+            <!-- Eraser -->
+            <div class="tool-group">
+                <button id="eraserBtn" class="tool-btn">🧹 Eraser</button>
+            </div>
+
+            <!-- Undo / Redo -->
+            <div class="tool-group">
+                <button id="undoBtn" class="tool-btn">↩ Undo</button>
+                <button id="redoBtn" class="tool-btn">↪ Redo</button>
+            </div>
+
+            <!-- Save -->
+            <div class="tool-group">
+                <button id="savePngBtn" class="tool-btn">💾 PNG</button>
+                <button id="saveJpgBtn" class="tool-btn">💾 JPEG</button>
+            </div>
+
+            <!-- Clear -->
+            <div class="tool-group">
+                <button id="clearBtn" class="tool-btn danger">🗑 Clear</button>
+            </div>
+
+            <div class="tool-group">
+                <div id="statusIndicator" title="System Status" 
+                    style="width: 15px; height: 15px; border-radius: 50%; background: #2ecc71; display: inline-block;">
+                </div>
+                <span id="statusText" style="font-size: 12px; margin-left: 5px;">Online</span>
+            </div>
+
+            <div id="connectionOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); color: white; z-index: 1000; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif;">
+                <h2 style="margin-bottom: 10px;">⚔️ Lost Connection to the Great Hall ⚔️</h2>
+                <p>Searching for a Leader... Please wait.</p>
+                <div class="loader" style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 2s linear infinite;"></div>
+            </div>
+
+            <style>
+                @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            </style>
+
+        </div>
+
+        <!-- Canvas -->
+        <canvas id="board"></canvas>
+    </div>
+
+    <script src="js/canvas.js" defer></script>
+    <script src="js/draw.js" defer></script>
+    <script src="js/websocket.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+node_modules/
+*/node_modules/
+
+.env
+npm-debug.log
+.DS_Store
+
+*.zip
+
+MINI_RAFT_WORKFLOW_REPORT*.pdf
+MINI_RAFT_WORKFLOW_REPORT*.html
+MINI_RAFT_WORKFLOW_REPORT*.rtf
+
+gateway-template.js
+raft-server-template.js
