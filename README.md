@@ -170,7 +170,3 @@ replica3/       Raft-style replica node 3
 docker-compose.yml
 Dockerfile
 ~~~
-
-## Deployment Note
-
-This project is designed to be demonstrated locally with Docker Compose because it runs multiple backend services. For recruiter demos, you can either share a recorded demo video or expose the local gateway temporarily using a tunnel service such as ngrok or Cloudflare Tunnel.
