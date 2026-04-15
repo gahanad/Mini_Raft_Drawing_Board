@@ -13,7 +13,7 @@ Example:
 
 ```md
 ![Drawing board demo](docs/media/demo-screenshot.png)
-
+```
 
 Features
 Real-time collaborative drawing using WebSockets
@@ -22,3 +22,101 @@ Three replica services with Raft-style leader election
 Majority-based write replication
 Automatic failover when one replica goes down
 Docker Compose setup for a full local distributed demo
+
+Architecture
+Browser clients
+      |
+      v
+WebSocket Gateway
+      |
+      v
+Current Raft Leader
+      |
+      v
+Follower Replicas
+      |
+      v
+Gateway broadcasts committed strokes to all browsers
+
+How It Works
+-A browser connects to the gateway through WebSocket.
+-The user draws on the canvas.
+-The frontend sends the stroke to the gateway.
+-The gateway forwards the stroke to the current Raft leader.
+-The leader appends the stroke to its log.
+-The leader replicates the entry to follower replicas.
+-Once a majority accepts the entry, the stroke is committed.
+-The gateway broadcasts the committed stroke to all connected browsers.
+
+Tech Stack
+-HTML, CSS, JavaScript
+-Node.js
+-Express.js
+-WebSocket
+-Axios
+-Docker
+-Docker Compose
+
+Run Locally
+Prerequisites:
+-Docker Desktop
+-Git
+
+Clone the repository:
+git clone <your-repository-url>
+cd MINI_RAFT
+
+Start the full cluster:
+docker compose up --build
+
+Open the app:
+http://localhost:8080
+
+To stop everything:
+docker compose down
+
+Local Services
+Service	URL
+Gateway	http://localhost:8080
+Replica 1	http://localhost:5001/health
+Replica 2	http://localhost:5002/health
+Replica 3	http://localhost:5003/health
+
+Failover Demo
+The cluster has three replicas, so a majority is two nodes. You can stop one replica and the remaining nodes should elect or continue with a leader.
+
+Start the app:
+docker compose up --build
+
+In another terminal, stop one replica:
+docker stop replica2
+
+Expected behavior in the logs:
+-replica1 started election
+-replica3 voted for replica1
+-replica1 became LEADER
+-replica1 write acks: majority
+
+Start the stopped replica again:
+docker start replica2
+
+API Health Checks
+Gateway health:
+http://localhost:8080/health
+
+Replica health:
+http://localhost:5001/health
+http://localhost:5002/health
+http://localhost:5003/health
+
+Project Structure
+frontend/    -   Browser UI for the drawing board
+gateway/     -   WebSocket gateway and frontend static server
+replica1/    -  Raft-style replica node 1
+replica2/    -   Raft-style replica node 2
+replica3/    -   Raft-style replica node 3
+docker-compose.yml
+Dockerfile
+
+Deployment Note
+This project is designed to be demonstrated locally with Docker Compose because it runs multiple backend services. For recruiter demos, you can either share a recorded demo video or expose the local gateway temporarily using a tunnel service such as ngrok or Cloudflare Tunnel.
