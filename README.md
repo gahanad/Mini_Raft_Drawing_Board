@@ -6,7 +6,7 @@ MINI_RAFT is a distributed collaborative drawing board built with WebSockets, No
 
 Add your demo media here before sharing the repository:
 
-- Demo video: `PASTE_YOUR_VIDEO_LINK_HERE`
+- Demo video: https://youtu.be/MTBbV5M58Xs
 - Screenshots: add images under `docs/media/` and embed them below
 
 Example:
