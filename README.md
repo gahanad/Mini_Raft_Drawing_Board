@@ -81,7 +81,7 @@ Prerequisites:
 Clone the repository:
 
 ~~~bash
-git clone <your-repository-url>
+git clone https://github.com/gahanad/Mini_Raft_Drawing_Board
 cd MINI_RAFT
 ~~~
 
