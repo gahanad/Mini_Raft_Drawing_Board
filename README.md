@@ -9,11 +9,17 @@ Add your demo media here before sharing the repository:
 - Demo video: https://youtu.be/MTBbV5M58Xs
 - Screenshots: add images under `docs/media/` and embed them below
 
-Example:
+## Demo
 
-~~~md
-![Drawing board demo](docs/media/demo-screenshot.png)
-~~~
+![Drawing board demo](docs/media/UI.png)
+
+![Drawing board demo](docs/media/UI_drawn.png)
+
+![Drawing board demo](docs/media/UI_drawn_with_colors.png)
+
+![Real-time sync demo](docs/media/Starting_Leader_election.png)
+
+![Raft failover logs](docs/media/After_node_failure.png)
 
 ## Features
 
