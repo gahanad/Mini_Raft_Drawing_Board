@@ -10,14 +10,17 @@ Add your demo media here before sharing the repository:
 
 ## Demo 
 
+## UI
 ![Drawing board demo](docs/media/UI.png)
 
 ![Drawing board demo](docs/media/UI_drawn.png)
 
 ![Drawing board demo](docs/media/UI_drawn_with_colors.png)
 
+## Leader Election
 ![Real-time sync demo](docs/media/Starting_Leader_election.png)
 
+## After leader failure
 ![Raft failover logs](docs/media/After_node_failure.png)
 
 ## Features
