@@ -2,14 +2,13 @@
 
 MINI_RAFT is a distributed collaborative drawing board built with WebSockets, Node.js, Docker, and a Raft-style leader election flow. The browser sends drawing strokes to a gateway, and the gateway commits those strokes through a three-node replica cluster before broadcasting them back to connected clients.
 
-## Demo
+## Demo Video
 
 Add your demo media here before sharing the repository:
 
 - Demo video: https://youtu.be/MTBbV5M58Xs
-- Screenshots: add images under `docs/media/` and embed them below
 
-## Demo
+## Demo 
 
 ![Drawing board demo](docs/media/UI.png)
 
