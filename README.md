@@ -170,3 +170,5 @@ replica3/       Raft-style replica node 3
 docker-compose.yml
 Dockerfile
 ~~~
+
+## ENJOY THE MINI RAFT
